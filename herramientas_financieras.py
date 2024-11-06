@@ -43,6 +43,42 @@ def retorno_simple(precio_inicial, precio_final):
 
 
 def retorno_compuesto(valores):
+    """
+    Calcula el retorno compuesto de una inversión basado en una lista de valores de precios sucesivos.
+
+    El retorno compuesto es una métrica financiera que mide el crecimiento acumulado de una inversión
+    a lo largo de múltiples periodos. Este retorno se calcula multiplicando los retornos de cada
+    periodo sucesivo y restando 1 al resultado acumulado.
+
+    Parameters
+    ----------
+    valores : list of int or float
+        Lista de precios sucesivos de la inversión, donde cada elemento representa el valor de la
+        inversión en un periodo determinado. La lista debe contener al menos dos valores.
+
+    Returns
+    -------
+    float
+        El retorno compuesto de la inversión, expresado como una fracción decimal. Por ejemplo,
+        un valor de 0.3 indica un retorno compuesto del 30%.
+
+    Raises
+    ------
+    ValueError
+        Si la lista `valores` contiene menos de dos elementos.
+    TypeError
+        Si algún valor en `valores` no es numérico (int o float).
+
+    Examples
+    --------
+    >>> retorno_compuesto([100, 110, 121])
+    0.21
+
+    >>> retorno_compuesto([100, 90, 81])
+    -0.19
+
+    """
+
     if len(valores) < 2:
         raise ValueError('A la lista le faltan más valores')
 
@@ -65,6 +101,35 @@ def retorno_compuesto(valores):
         
 
 def verificar_valor_numerico(valor_inicial, valor_final):
+    """
+    Verifica que los valores proporcionados sean numéricos.
+
+    Esta función valida que ambos parámetros de entrada, `valor_inicial` y `valor_final`, sean
+    de tipo numérico (int o float). Si alguno de los valores no es numérico, lanza una excepción
+    `TypeError`.
+
+    Parameters
+    ----------
+    valor_inicial : int or float
+        El valor inicial a verificar. Debe ser numérico.
+    valor_final : int or float
+        El valor final a verificar. Debe ser numérico.
+
+    Raises
+    ------
+    TypeError
+        Si `valor_inicial` o `valor_final` no son valores numéricos (int o float).
+
+    Examples
+    --------
+    >>> verificar_valor_numerico(100, 120)
+    # No se lanza ninguna excepción
+
+    >>> verificar_valor_numerico(100, "120")
+    TypeError: Los parámetros 'precio_inicial' y/o 'precio_final' deben de ser valores numéricos
+
+    """
+
     if not isinstance(valor_inicial, (int, float)) or not isinstance(valor_final, (int, float)):
             raise TypeError("Los parámetros 'precio_inicial' y/o 'precio_final' deben de ser valores numéricos")
     
