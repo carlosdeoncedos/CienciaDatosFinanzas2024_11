@@ -340,7 +340,7 @@ def bandas_bollinger_posicion(df, k):
 
 
 def fig_2activos(df_2activos):
-    fig, ax = plt.subplots(figsize=(12,6))
+    fig, ax = plt.subplots(figsize=(12,5))
     ax.set_title('Gráfica Activos Rojo y Azul')
 
     plt.xlabel('Riesgo', fontsize = 10)
